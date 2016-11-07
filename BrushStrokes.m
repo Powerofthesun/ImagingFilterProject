@@ -49,5 +49,6 @@ for i=1:size(I,1)
         end
     end
 end
+imOut=WhiteBorder(imOut,4);
 end
 
