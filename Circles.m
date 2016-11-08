@@ -2,11 +2,15 @@ function [ imOut ] = Circles( R,radius,bw )
 %Turns image into a series of circles
 R=im2double(R);
 T=R;
-T=T*2*bw;
+if bw==1
+    T=T+1;
+else
+T=T*0;
+end
 rows=size(R,1);
 colums=size(R,2);
 for i=1:radius*2:rows
-    for j=1:radius*2:colums
+    for j=radius:radius*2:colums
         
         colorr=R(i,j,1);
         colorg=R(i,j,2);

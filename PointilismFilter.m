@@ -1,7 +1,8 @@
-function [ imOut ] = PointilismFilter( I, whiteness )
+function [ imOut ] = PointilismFilter( I)
 %Tries to replicate the pointilism art style
 I=im2double(I);
 imOut=I;
+whiteness=0.2;
 for i=1:size(I,1)
     for j=1:size(I,2)
         if (mod(i,3)==0) && (mod(j,3)==0)
