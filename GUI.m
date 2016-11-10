@@ -121,89 +121,130 @@ function Filters_Callback(hObject, eventdata, handles)
 % Hints: contents = cellstr(get(hObject,'String')) returns Filters contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from Filters
 contents=cellstr(get(hObject,'String'));
-switch contents{get(hObject,'Value')}
-    case 'BadCamera'
-        prompt = {'Enter bad level(0-1):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'0.25'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(BadCamera(handles.mainImage,str2double(answer(1))));
-    case 'BadCamera2'
-        prompt = {'Enter bad level(0-1):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'0.25'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(BadCamera2(handles.mainImage,str2double(answer(1))));
-    case 'Default'
-        imshow(handles.mainImage);
-    case 'BinaryFilter'
-        prompt = {'Enter threshold level(0-1):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'0.5'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(BinaryFilter(handles.mainImage,str2double(answer(1))));
-    case 'BlackBorder'
-        prompt = {'Enter Border Thickness (1+):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'10'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(BlackBorder(handles.mainImage,str2double(answer(1))));
-    case 'BrightBWGradient'
-        imshow(BrightBWGradient(handles.mainImage));
-    case 'BrushStrokes'
-        imshow(BrushStrokes(handles.mainImage));
-    case 'BWHighContrast'
-        imshow(BWHighContrast(handles.mainImage));
-    case 'CenterTriangle'
-        prompt = {'Color(1 For Black, 0 for White):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'1'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(CenterTriangle(handles.mainImage,str2double(answer(1))));
-    case 'Circles'
-        prompt = {'Enter Radius Size(small values will take a long time):','Color(0 For Black, 1 for White):'};
-        dlg_title = 'Specifics';
-        num_lines = 2;
-        defaultans = {'10','0'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(Circles(handles.mainImage,str2double(answer(1)),str2double(answer(2))));
-    case 'EdgeGradient'
-        imshow(EdgeGradient(handles.mainImage));
-    case 'PointilismFilter'
-        imshow(PointilismFilter(handles.mainImage));
-    case 'Sepia'
-        imshow(sepia(handles.mainImage));
-    case 'SepiaGradient'
-        imshow(SepiaGradient(handles.mainImage));
-    case 'Lego'
-        prompt = {'Brick Size(1-10):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'6'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(Sequin(handles.mainImage,str2double(answer(1))));
-    case 'Torn'
-        prompt = {'Color(0 for Black, 1 for White):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'0'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(Torn(handles.mainImage,str2double(answer(1))));
-    case 'Vintage'
-        imshow(Vintage(handles.mainImage));
-    case 'WhiteBorder'
-        prompt = {'Enter Border Thickness (1+):'};
-        dlg_title = 'Specifics';
-        num_lines = 1;
-        defaultans = {'10'};
-        answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
-        imshow(WhiteBorder(handles.mainImage,str2double(answer(1))));
-    otherwise
+try 
+    switch contents{get(hObject,'Value')}
+        case 'BadCamera'
+            prompt = {'Enter bad level(0-1):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'0.25'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(BadCamera(handles.mainImage,str2double(answer(1))));
+        case 'BadCamera2'
+            prompt = {'Enter bad level(0-1):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'0.25'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(BadCamera2(handles.mainImage,str2double(answer(1))));
+        case 'Default'
+            imshow(handles.mainImage);
+        case 'BinaryFilter'
+            prompt = {'Enter threshold level(0-1):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'0.5'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(BinaryFilter(handles.mainImage,str2double(answer(1))));
+        case 'BlackBorder'
+            prompt = {'Enter Border Thickness (1+):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'10'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(BlackBorder(handles.mainImage,str2double(answer(1))));
+        case 'BrightBWGradient'
+            imshow(BrightBWGradient(handles.mainImage));
+        case 'BrushStrokes'
+            imshow(BrushStrokes(handles.mainImage));
+        case 'BWHighContrast'
+            imshow(BWHighContrast(handles.mainImage));
+        case 'CenterTriangle'
+            prompt = {'Color(1 For Black, 0 for White):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'1'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(CenterTriangle(handles.mainImage,str2double(answer(1))));
+        case 'Circles'
+            prompt = {'Enter Radius Size(small values will take a long time):','Color(0 For Black, 1 for White):'};
+            dlg_title = 'Specifics';
+            num_lines = 2;
+            defaultans = {'10','0'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(Circles(handles.mainImage,str2double(answer(1)),str2double(answer(2))));
+        case 'EdgeGradient'
+            imshow(EdgeGradient(handles.mainImage));
+        case 'PointilismFilter'
+            imshow(PointilismFilter(handles.mainImage));
+        case 'Sepia'
+            imshow(sepia(handles.mainImage));
+        case 'SepiaGradient'
+            imshow(SepiaGradient(handles.mainImage));
+        case 'Lego'
+            prompt = {'Brick Size(1-10):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'6'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(Sequin(handles.mainImage,str2double(answer(1))));
+        case 'Torn'
+            prompt = {'Color(0 for Black, 1 for White):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'0'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(Torn(handles.mainImage,str2double(answer(1))));
+        case 'Vintage'
+            imshow(Vintage(handles.mainImage));
+        case 'WhiteBorder'
+            prompt = {'Enter Border Thickness (1+):'};
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'10'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(WhiteBorder(handles.mainImage,str2double(answer(1))));
+        case 'BlueStyle'
+            imshow(BlueStyle(handles.mainImage));
+        case 'SunshineFilter'
+            imshow(SunshineFilter(handles.mainImage));
+        case 'ColorGroup'
+            prompt = {'Select Coloring Threshold(0-1):','Select color scheme(copper,parula,hsv,bone,spring,lines,flag,colorcube,jet):'};             
+            dlg_title = 'Specifics';
+            num_lines = 2;
+            defaultans = {'0.5','flag'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(ColorGroup(handles.mainImage, str2double(answer(1)), string(answer(2))));
+        case 'DrugTrip'
+            imshow(DrugTrip(handles.mainImage));
+        case 'Warhol'
+            prompt = {'Select which side to be flipped(l, r, n):'};             
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'n'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(Warhol(handles.mainImage, string(answer(1))));
+        case 'Reverse'
+            imshow(Reverse(handles.mainImage));
+        case 'Dark'
+            imshow(Dark(handles.mainImage));
+        case 'Bright'
+            imshow(Bright(handles.mainImage));
+        case 'StylizedEdge'
+            imshow(StylizedEdge(handles.mainImage));
+        case 'GreenGrad'
+            imshow(GreenGrad(handles.mainImage));
+        case 'ColorIsolation'
+             prompt = {'Select Color to be isolate(red, blue,green)'};             
+            dlg_title = 'Specifics';
+            num_lines = 1;
+            defaultans = {'green'};
+            answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
+            imshow(ColorIsolation(handles.mainImage, string(answer(1))));
+        otherwise
+    end
+catch ME
+    ME         
 end
 
 
@@ -217,6 +258,7 @@ function Filters_CreateFcn(hObject, eventdata, handles)
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
+endmanualMask = imfreehand;
 end
 
 

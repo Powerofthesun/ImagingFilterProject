@@ -3,12 +3,8 @@ function [ outIm ] = CenterTriangle( I,b )
 I=im2double(I);
 triangle=rgb2gray(im2double(imread('triangle.png')));
 triangle=imresize(triangle, [size(I,1) size(I,2)]);
-imshow(triangle);
 triangle=imresize(triangle, 0.25);
-imshow(triangle);
 bwtriangle=imbinarize(triangle);
-imshow(bwtriangle);
-
 if b==1
     x=1;
     y=1;
